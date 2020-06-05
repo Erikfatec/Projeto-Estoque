@@ -12,8 +12,8 @@ mysqli_stmt_bind_param($rs,'ssss',$nome,$cpf,$senha,$tipo);
 mysqli_stmt_execute($rs);
 
 if(mysqli_error($banco) == ''){
-    echo("{'editar':true}");
+    echo("{'inserir':true}");
 }else{
-    echo("{'editar':false}");
+    echo("{'inserir':false}");
 }
 ?>

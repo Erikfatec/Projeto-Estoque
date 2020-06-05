@@ -10,8 +10,8 @@ mysqli_stmt_bind_param($rs,'i',$id);
 mysqli_stmt_execute($rs);
 
 if(mysqli_error($banco) == ''){
-    echo("{'editar':true}");
+    echo("{'excluir':true}");
 }else{
-    echo("{'editar':false}");
+    echo("{'excluir':false}");
 }
 ?>

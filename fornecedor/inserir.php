@@ -10,8 +10,8 @@ mysqli_stmt_bind_param($rs,'si',$nome_empresa,$cnpj);
 mysqli_stmt_execute($rs);
 
 if(mysqli_error($banco) == ''){
-    echo("{'editar':true}");
+    echo("{'status':true}");
 }else{
-    echo("{'editar':false}");
+    echo("{'status':false}");
 }
 ?>

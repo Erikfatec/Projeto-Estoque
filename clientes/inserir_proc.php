@@ -12,8 +12,8 @@ mysqli_stmt_bind_param($rs,'isss',$id,$nome,$cpf,$cnpj);
 mysqli_stmt_execute($rs);
 
 if(mysqli_error($bd) == ''){
-    echo("{'inserir':true}");
+    echo("{'status':true}");
 }else{
-    echo("{'inserir':false}");
+    echo("{'status':false}");
 }
 ?>

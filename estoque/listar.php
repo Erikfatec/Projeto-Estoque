@@ -4,7 +4,7 @@ $sql = "SELECT * FROM estoque";
 $rs = mysqli_query($bd,$sql);
 $cont =0;
 if(mysqli_error($bd) == ''){
-    echo('[');
+    echo("'produtos:'[");
 while($est = mysqli_fetch_assoc($rs)):
     echo('{');
 

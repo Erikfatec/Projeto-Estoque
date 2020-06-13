@@ -13,8 +13,8 @@ mysqli_stmt_bind_param($rs,'sssi',$nome,$cpf,$cnpj,$id);
 mysqli_stmt_execute($rs);
 
 if(mysqli_error($bd) == ''){
-    echo("{'editar':true}");
+    echo("{'status':true}");
 }else{
-    echo("{'editar':false}");
+    echo("{'status':false}");
 }
 ?>

@@ -10,8 +10,8 @@ $rs = mysqli_prepare($bd,$sql);
 mysqli_stmt_bind_param($rs,'sddss',$produto,$peso,$quantidade,$datavenc,$datachega);
 mysqli_stmt_execute($rs);
 if(mysqli_error($bd) == ''){
-    echo("{'inserir':true}");
+    echo("{'status':true}");
 }else{
-    echo("{'inserir':false}");
+    echo("{'status':false}");
 }
 ?>

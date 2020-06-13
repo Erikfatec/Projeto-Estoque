@@ -6,8 +6,8 @@ $rs = mysqli_prepare($bd,$sql);
 mysqli_stmt_bind_param($rs,'s',$produto);
 mysqli_stmt_execute($rs);
 if(mysqli_error($bd) == ''){
-    echo("{'editar':true}");
+    echo("{'status':true}");
 }else{
-    echo("{'editar':false}");
+    echo("{'status':false}");
 }
 ?>

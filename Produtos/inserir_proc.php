@@ -13,8 +13,8 @@ mysqli_stmt_bind_param($rs,'isiis',$id,$nome,$tipo,$cpf_funcionario,$fornecedor)
 mysqli_stmt_execute($rs);
 
 if(mysqli_error($bd) == ''){
-    echo("{'inserir':true}");
+    echo("{'status':true}");
 }else{
-    echo("{'inserir':false}");
+    echo("{'status':false}");
 }
 ?>

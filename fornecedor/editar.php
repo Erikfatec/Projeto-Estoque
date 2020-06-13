@@ -12,8 +12,8 @@ mysqli_stmt_bind_param($rs,'sii',$nome_empresa,$cnpj,$id);
 mysqli_stmt_execute($rs);
 
 if (mysqli_error($banco)=='') {
-    echo("{'editar':true}");
+    echo("{'status':true}");
 }else{
-    echo("{'editar':false}");
+    echo("{'status':false}");
 }
 ?>

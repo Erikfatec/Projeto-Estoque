@@ -1,6 +1,6 @@
 <?php
 require_once '../bd.php';
-
+require_once '../verificar1.php';
 $id = intval(filter_input(INPUT_POST,'id',FILTER_DEFAULT));
 $nome = filter_input(INPUT_POST,'nome',FILTER_DEFAULT);
 $cpf = filter_input(INPUT_POST,'cpf',FILTER_DEFAULT);

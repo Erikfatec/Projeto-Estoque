@@ -1,6 +1,6 @@
 <?php
 require_once '../bd.php';
-
+require_once '../verificar1.php';
 $nome = filter_input(INPUT_POST,'nome',FILTER_DEFAULT);
 $cpf = filter_input(INPUT_POST,'cpf',FILTER_DEFAULT);
 $senha= filter_input(INPUT_POST,'senha',FILTER_DEFAULT);

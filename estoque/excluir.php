@@ -1,5 +1,6 @@
 <?php 
-require_once 'bd.php';
+require_once '../bd.php';
+require_once '../verificar1.php';
 $produto = filter_input(INPUT_POST,'produto',FILTER_DEFAULT);
 $sql = "DELETE estoque WHERE codigo='?')";
 $rs = mysqli_prepare($bd,$sql);

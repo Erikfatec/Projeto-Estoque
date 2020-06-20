@@ -1,9 +1,9 @@
 <?php
-require_once '../bd.php';
-require_once '../verificar1.php';
+require_once '../../bd.php';
+require_once '../../verificar1.php';
 $id = intval(filter_input(INPUT_POST,'id',FILTER_DEFAULT));
 
-$sql = "DELETE FROM produtos WHERE id = ?" ;
+$sql = "DELETE FROM categorias WHERE id = ?" ;
 
 $rs = mysqli_prepare($bd,$sql);
 mysqli_stmt_bind_param($rs,'i',$id);

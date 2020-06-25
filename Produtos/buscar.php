@@ -1,6 +1,6 @@
 <?php 
 require_once '../bd.php';
-require_once '../verificar1.php';
+require_once '../verificar2.php';
 
 $id = intval(filter_input(INPUT_POST,'nome',FILTER_DEFAULT));
 $id = mysqli_real_escape_string($bd,$id);

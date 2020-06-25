@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Jun-2020 às 01:40
+-- Tempo de geração: 25-Jun-2020 às 03:12
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.5
 
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `cachacaria`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id` int(20) NOT NULL,
+  `nome` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nome`) VALUES
+(5, 'Bebidas');
 
 -- --------------------------------------------------------
 
@@ -89,10 +107,18 @@ CREATE TABLE `estoque` (
   `produto` varchar(200) NOT NULL,
   `peso` double(10,2) DEFAULT NULL,
   `quantidade` int(11) DEFAULT NULL,
-  `data_de_vencimento` datetime DEFAULT NULL,
-  `data_de_chegada` datetime DEFAULT NULL,
-  `cpf_funcionario` int(11) NOT NULL
+  `lote` varchar(100) NOT NULL,
+  `data_de_vencimento` date DEFAULT NULL,
+  `data_de_chegada` date DEFAULT NULL,
+  `cpf_funcionario` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `estoque`
+--
+
+INSERT INTO `estoque` (`produto`, `peso`, `quantidade`, `lote`, `data_de_vencimento`, `data_de_chegada`, `cpf_funcionario`) VALUES
+('coca', 100.00, 1, '001', '2020-06-27', '2020-06-01', '50038795809');
 
 -- --------------------------------------------------------
 
@@ -127,12 +153,19 @@ CREATE TABLE `funcionario` (
 --
 
 CREATE TABLE `produtos` (
-  `codigo` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome` varchar(200) DEFAULT NULL,
-  `tipo` int(200) DEFAULT NULL,
+  `tipo` varchar(200) DEFAULT NULL,
   `fornecedor` varchar(200) NOT NULL,
-  `cpf_funcionario` int(50) NOT NULL
+  `cpf_funcionario` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome`, `tipo`, `fornecedor`, `cpf_funcionario`) VALUES
+(10, 'coca', 'Bebidas', '2', 'Henrique');
 
 -- --------------------------------------------------------
 
@@ -149,8 +182,23 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nome`, `cpf`, `senha`, `tipo`) VALUES
+(18, 'henrique', '50038795809', '$2y$10$JJSrZZkQvMkRdB1dToS6KOaF1u3lZ112KQvzdDe1mdSVCsNdMrCte', '1'),
+(26, 'usuario', '123', '$2y$10$antjDf1VT558gjW.yCQy8.B.Egv0kdijMxC.MnPnMgDD1NhnclckK', '2');
+
+--
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nome` (`nome`);
 
 --
 -- Índices para tabela `cliente`
@@ -185,6 +233,7 @@ ALTER TABLE `conta_pagar`
 --
 ALTER TABLE `estoque`
   ADD PRIMARY KEY (`produto`),
+  ADD UNIQUE KEY `lote` (`lote`),
   ADD KEY `cpf_funcionario` (`cpf_funcionario`);
 
 --
@@ -205,7 +254,7 @@ ALTER TABLE `funcionario`
 -- Índices para tabela `produtos`
 --
 ALTER TABLE `produtos`
-  ADD PRIMARY KEY (`codigo`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `cpf_funcionario` (`cpf_funcionario`);
 
 --
@@ -220,6 +269,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
@@ -229,13 +284,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,6 +1,6 @@
 <?php 
 require_once '../../bd.php';
-require_once '../../verificar1.php';
+require_once '../../verificar2.php';
 $sql = "SELECT * FROM categorias";
 $rs = mysqli_query($bd,$sql);
 $cont =0;

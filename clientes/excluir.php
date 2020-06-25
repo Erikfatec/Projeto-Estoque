@@ -1,6 +1,6 @@
 <?php
-require_once 'bd.php';
-
+require_once '../bd.php';
+require_once '../verificar1.php';
 $id = intval(filter_input(INPUT_GET,'id',FILTER_DEFAULT));
 
 $sql = "DELETE FROM cliente 
